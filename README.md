@@ -1,35 +1,51 @@
-# So_Long
+# so_long
 
----
+A simple 2D game where you need to collect all collectibles and reach the exit, created using MiniLibX.
 
-## 🎯 **الهدف ديال المشروع**
+## Requirements
 
-- تطوير مهارات التعامل مع الملفات، المؤشرات، والـ 2D arrays.
-- فهم كيفاش نخدمو مع المكتبات الخارجية بحال MiniLibX.
-- تعلم التحكم فـ الكلافيي (keyboard inputs) و الأحداث (event handling).
-- تنظيم الكود باستعمال **structs** و تقسيم المنطق فملفات منظمة.
-- احترام القواعد ديال المشروع (norm, memory leaks, error handling...).
+- MiniLibX library
+- X11 development libraries
+- GCC compiler
+- Make
 
----
+## Installation
 
-## ⚙️ **كيفاش خدام البرنامج؟**
+1. Clone this repository
+2. Make sure you have MiniLibX installed
+3. Run `make` to compile the project
 
-1. البرنامج كيقرا خريطة من ملف `.ber`
-2. كيتحقق من صلاحية الخريطة (شكلها، الرموز، المسارات...)
-3. كيعرضها فـ نافذة حسب الحجم ديالها
-4. اللاعب كيتحرك باستعمال W A S D
-5. البرنامج كيتبع عدد الخطوات وكيعرضهم
-6. ملي يجمع كلشي ويوصل للباب، اللعبة كتسالي
+## Usage
 
----
+Run the game with a map file:
+```bash
+./so_long maps/test.ber
+```
 
-## 🗂️ **أهم الوظائف اللي خاص تبرمج**
+## Map Format
 
-- قراءة وتحليل الماب (`.ber`)
-- التحقق من صحة الماب
-- عرض الخريطة باستعمال الصور
-- تحكم اللاعب فالحركة
-- إنهاء اللعبة بطريقة نظيفة
-- التحقق واش الماب قابلة للتكملة (solvable)
+The map should be a .ber file with the following characters:
+- '1' for walls
+- '0' for empty space
+- 'P' for player starting position
+- 'C' for collectibles
+- 'E' for exit
 
----
+The map must be:
+- Rectangular
+- Surrounded by walls
+- Have at least one collectible
+- Have exactly one player and one exit
+- Have a valid path to collect all collectibles and reach the exit
+
+## Controls
+
+- Arrow keys to move the player
+- ESC or close window to quit
+
+## Project Structure
+
+- `src/` - Source files
+- `include/` - Header files
+- `maps/` - Map files
+- `obj/` - Object files (created during compilation)
