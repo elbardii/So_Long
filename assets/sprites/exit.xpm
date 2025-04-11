@@ -1,0 +1,44 @@
+/* XPM */
+static char *exit_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"32 32 5 1",
+/* colors */
+". c #8B4513", /* Dark brown for door frame */
+"X c #A52A2A", /* Brown for door */
+"o c #FFD700", /* Gold for doorknob */
+"+ c #000000", /* Black for keyhole */
+"  c None",    /* Transparent */
+/* pixels */
+"                                ",
+"                                ",
+"         ................       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXX..XXXXXXX.       ",
+"         .XXXXX..XXXXXXX.       ",
+"         .XXXXXooXXXXXXX.       ",
+"         .XXXXX++XXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         .XXXXXXXXXXXXXX.       ",
+"         ................       ",
+"                                "
+};

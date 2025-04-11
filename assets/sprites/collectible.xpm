@@ -1,0 +1,43 @@
+/* XPM */
+static char *collectible_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"32 32 4 1",
+/* colors */
+". c #000000", /* Black for outline */
+"X c #FFD700", /* Gold */
+"o c #FFDF00", /* Golden yellow */
+"  c None",    /* Transparent */
+/* pixels */
+"                                ",
+"                                ",
+"                                ",
+"            ........            ",
+"          ..oooooooo..          ",
+"         .ooXXXXXXXXoo.         ",
+"        .oXXXXXXXXXXXXo.        ",
+"       .oXXXXXXXXXXXXXXo.       ",
+"       .oXXoooooooooXXXo.       ",
+"      .oXXXo        oXXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXo          oXXo.      ",
+"      .oXXXo        oXXXo.      ",
+"       .oXXXooooooooXXXo.       ",
+"       .oXXXXXXXXXXXXXXo.       ",
+"        .oXXXXXXXXXXXXo.        ",
+"         .ooXXXXXXXXoo.         ",
+"          ..oooooooo..          ",
+"            ........            ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                "
+};

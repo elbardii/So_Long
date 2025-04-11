@@ -1,0 +1,41 @@
+/* XPM */
+static char *wall_xpm[] = {
+/* width height num_colors chars_per_pixel */
+"32 32 3 1",
+/* colors */
+"  c #8B4513", /* Brown for brick */
+". c #A0522D", /* Sienna for brick highlights */
+"X c #6B4226", /* Darker brown for mortar */
+/* pixels */
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"X......      ......      ......X",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"X      ......      ......      X",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+};
