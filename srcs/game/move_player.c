@@ -51,11 +51,11 @@ static void	handle_game_events(t_game *game, int new_x, int new_y)
 	else if (game->map.grid[new_y][new_x] == EXIT && 
 			game->map.collected == game->map.collectibles)
 	{
-		ft_putstr("\nCongratulations! You won in ");
+		ft_putstr_custom("\nCongratulations! You won in ");
 		moves_str = ft_itoa(game->player.moves);
-		ft_putstr(moves_str);
+		ft_putstr_custom(moves_str);
 		free(moves_str);
-		ft_putstr(" moves!\n");
+		ft_putstr_custom(" moves!\n");
 		close_game(game);
 	}
 }
@@ -70,10 +70,10 @@ static void	display_moves(t_game *game)
 	char	*moves_str;
 
 	// Clear the current line with spaces
-	ft_putstr("\r                     \r");
-	ft_putstr("Moves: ");
+	ft_putstr_custom("\r                     \r");
+	ft_putstr_custom("Moves: ");
 	moves_str = ft_itoa(game->player.moves);
-	ft_putstr(moves_str);
+	ft_putstr_custom(moves_str);
 	free(moves_str);
 }
 

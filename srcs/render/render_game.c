@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:45:00 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/11 04:36:43 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 08:46:54 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ static void	render_info(t_game *game)
 	collected_str = ft_itoa(game->map.collected);
 	total_str = ft_itoa(game->map.collectibles);
 	
-	display = ft_strjoin("Moves: ", moves_str);
+	display = ft_strjoin_custom("Moves: ", moves_str);
 	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, display);
 	free(display);
 	
-	display = ft_strjoin("Collected: ", collected_str);
+	display = ft_strjoin_custom("Collected: ", collected_str);
 	display = ft_strjoin_free(display, "/");
 	display = ft_strjoin_free(display, total_str);
 	mlx_string_put(game->mlx, game->win, 10, 40, 0xFFFFFF, display);

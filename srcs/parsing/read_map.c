@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/10 09:19:39 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 08:01:30 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	get_next_line(int fd, char **line)
 			return (-1);
 		}
 		if (i > 0)
-			temp = memcpy(temp, current_line, i);
+			temp = ft_memcpy(temp, current_line, i);
 		temp[i++] = buffer[0];
 		temp[i] = '\0';
 		free(current_line);
@@ -133,32 +133,7 @@ static int	validate_map_dimensions(t_map *map)
 	return (1);
 }
 
-/**
- * @brief Custom memcpy implementation
- * 
- * @param dst Destination buffer
- * @param src Source buffer
- * @param n Number of bytes to copy
- * @return void* Pointer to destination buffer
- */
-static void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t	i;
-	char	*d;
-	char	*s;
-
-	if (!dst && !src)
-		return (NULL);
-	d = (char *)dst;
-	s = (char *)src;
-	i = 0;
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
-}
+// Removed static ft_memcpy implementation as it conflicts with libft's version
 
 /**
  * @brief Read a map file into memory

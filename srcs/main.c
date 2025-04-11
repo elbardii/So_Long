@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/10 10:37:45 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 08:55:22 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,6 @@ static void	init_struct(t_game *game)
 	game->game_over = 0;
 	game->win_width = WIN_WIDTH;
 	game->win_height = WIN_HEIGHT;
-}
-
-/**
- * @brief Closes the game and exits cleanly
- * 
- * @param game Game structure pointer
- * @return int Exit status
- */
-int	close_game(t_game *game)
-{
-	free_resources(game);
-	exit(0);
-	return (0);
 }
 
 /**

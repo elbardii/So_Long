@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/11 05:13:25 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 08:50:42 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include "../minilibx-linux/mlx.h"
 # include "../libs/ft_printf/ft_printf.h"
+# include "../libs/libft/libft.h"
 # include "structs.h"
 
 /* Window settings */
@@ -89,8 +90,10 @@ int		check_error(t_game *game, int condition, t_error_code error_code, char *con
 void	log_error(t_error_code error_code, char *context);
 char	*get_error_message(t_error_code error_code);
 size_t	ft_strlen(const char *str);
-void	ft_putstr(char *str);
+void	ft_putstr_custom(char *str); /* Renamed to avoid conflict with ft_printf's ft_putstr */
 void	ft_putstr_error(char *str);
+char	*ft_strjoin_custom(char *s1, char *s2);
+char	*ft_strjoin_free(char *s1, char *s2);
 void	count_collectibles(t_game *game);
 
 #endif

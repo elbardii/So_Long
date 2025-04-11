@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/11 04:03:57 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 06:19:44 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,29 +76,6 @@ static void	ft_itoa_simple(int num, char *str)
 		str[i--] = (num % 10) + '0';
 		num /= 10;
 	}
-}
-
-/**
- * @brief Concatenate strings without using library functions
- * 
- * @param dest Destination buffer
- * @param src Source string to append
- */
-static void	ft_strcat_simple(char *dest, const char *src)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (dest[i])
-		i++;
-	j = 0;
-	while (src[j])
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	dest[i + j] = '\0';
 }
 
 /**

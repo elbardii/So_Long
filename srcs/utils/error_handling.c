@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/11 05:13:25 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 06:15:48 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	ft_strlen(const char *str)
  * 
  * @param str String to print
  */
-void	ft_putstr(char *str)
+void	ft_putstr_custom(char *str)
 {
 	if (str)
 		ft_printf("%s", str);

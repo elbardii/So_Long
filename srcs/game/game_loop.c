@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:50:00 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/11 04:36:43 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 06:15:48 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
  */
 int	game_loop(t_game *game)
 {
-	ft_putstr("Game started! Use WASD or arrow keys to move. Press ESC to quit.\n");
-	ft_putstr("Moves: 0\r");
+	ft_putstr_custom("Game started! Use WASD or arrow keys to move. Press ESC to quit.\n");
+	ft_putstr_custom("Moves: 0\r");
 	
 	render_game(game);
 	

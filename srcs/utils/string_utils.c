@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:00:00 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/11 04:36:43 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/11 08:46:54 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*ft_strjoin_free(char *s1, char *s2)
  * @param s2 Second string
  * @return char* Joined string (malloc'ed)
  */
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_custom(char *s1, char *s2)
 {
 	char	*joined;
 	size_t	i;
