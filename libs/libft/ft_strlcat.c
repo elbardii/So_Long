@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 04:36:29 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/12 04:36:46 by isel-bar         ###   ########.fr       */
+/*   Created: 2024/10/29 17:54:44 by isel-bar          #+#    #+#             */
+/*   Updated: 2024/11/06 06:33:00 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[dest_len + i] = '\0';
 	return (dest_len + src_len);
 }
+// int main()
+// {
+// 	 char src[] = "Ayoub";
+// 	 char dest[10] = "ismail";
+// 	 int n = ft_strlcat(dest, src, 5);
+// 	 printf("%d\n ", n);
+// 	 printf("%s\n", dest);
+// }

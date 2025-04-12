@@ -1,96 +1,34 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/10 12:00:00 by ismail            #+#    #+#              #
-#    Updated: 2025/04/12 05:34:16 by isel-bar         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# Program name
 NAME = so_long
 
-# Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Iinclude -I$(HOME)/local/include -Ilibs/libft -Ilibs/get_next_line
 
-# Directories
-SRC_DIR = srcs
-INCLUDES = -Iincludes -I/usr/include -Ilibs/libft -Ilibs/ft_printf
-OBJ_DIR = objs
+SRCS = src/main.c src/map.c src/validate_map.c src/flood_fill.c src/freedom.c src/render.c src/player_movement.c src/ft_printf.c \
+		src/name_check.c \
+		libs/get_next_line/get_next_line.c libs/get_next_line/get_next_line_utils.c
+OBJS = $(SRCS:.c=.o)
 
-# MinilibX
-MLX_PATH = minilibx-linux
-MLX_LIB = $(MLX_PATH)/libmlx.a
-MLX_FLAGS = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
+MLX_DIR = $(HOME)/local/lib
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11
 
-# ft_printf
-PRINTF_PATH = libs/ft_printf
-PRINTF_LIB = $(PRINTF_PATH)/libftprintf.a
+LIBFT_DIR = libs/libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-# libft
-LIBFT_PATH = libs/libft
-LIBFT_LIB = $(LIBFT_PATH)/libft.a
-
-# Source files
-SRC_FILES = $(SRC_DIR)/main.c \
-			$(wildcard $(SRC_DIR)/init/*.c) \
-			$(wildcard $(SRC_DIR)/parsing/*.c) \
-			$(wildcard $(SRC_DIR)/game/*.c) \
-			$(wildcard $(SRC_DIR)/render/*.c) \
-			$(wildcard $(SRC_DIR)/utils/*.c)
-
-# Object files
-OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
-
-# Colors
-GREEN = \033[0;32m
-YELLOW = \033[0;33m
-RESET = \033[0m
-
-# Rules
 all: $(NAME)
 
-# Create directories if they don't exist
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	@echo "$(GREEN)Compiling:$(RESET) $<"
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 
-# Install and compile MinilibX if needed
-$(MLX_LIB):
-	@echo "$(YELLOW)Building MinilibX...$(RESET)"
-	@make -C $(MLX_PATH)
-
-# Compile ft_printf
-$(PRINTF_LIB):
-	@echo "$(YELLOW)Building ft_printf...$(RESET)"
-	@make -C $(PRINTF_PATH)
-	
-# Compile libft
-$(LIBFT_LIB):
-	@echo "$(YELLOW)Building libft...$(RESET)"
-	@make -C $(LIBFT_PATH)
-
-# Link the program
-$(NAME): $(MLX_LIB) $(PRINTF_LIB) $(LIBFT_LIB) $(OBJ_FILES)
-	@$(CC) $(OBJ_FILES) -o $(NAME) $(MLX_FLAGS) $(LIBFT_LIB) $(PRINTF_LIB)
-	@echo "$(GREEN)$(NAME) successfully compiled!$(RESET)"
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@make -C $(PRINTF_PATH) clean
-	@make -C $(LIBFT_PATH) clean
-	@echo "$(YELLOW)Object files removed.$(RESET)"
+	rm -f $(OBJS)
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
-	@make -C $(PRINTF_PATH) fclean
-	@make -C $(LIBFT_PATH) fclean
-	@echo "$(YELLOW)$(NAME) removed.$(RESET)"
+	rm -f $(NAME)
+	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 04:35:27 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/12 04:35:52 by isel-bar         ###   ########.fr       */
+/*   Created: 2024/10/29 17:54:48 by isel-bar          #+#    #+#             */
+/*   Updated: 2024/11/18 02:04:45 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,17 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
+// int main(void)
+// {
+//     char src[] = "Hello, World!";
+//     char dst[20];
+//     size_t size = sizeof(dst); 
+
+//     size_t copied_length = ft_strlcpy(dst, src, size);
+
+//     printf("Source: \"%s\"\n", src);
+//     printf("Destination: \"%s\"\n", dst);
+//     printf("Length of source string: %d\n", copied_length);
+
+//     return 0;
+// }

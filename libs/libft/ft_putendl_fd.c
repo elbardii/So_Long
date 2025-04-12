@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 17:54:26 by isel-bar          #+#    #+#             */
-/*   Updated: 2024/11/04 01:22:08 by isel-bar         ###   ########.fr       */
+/*   Created: 2024/11/08 22:24:24 by isel-bar          #+#    #+#             */
+/*   Updated: 2024/11/17 02:25:33 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putendl_fd(const char *s, int fd)
 {
-	size_t	i;
-
-	if (dst > src)
-		i = len - 1;
-	else
-		i = 0;
-	while (dst != src && ((dst > src && (int)i >= 0) || (dst < src && i < len)))
-	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		if (dst > src)
-			i--;
-		else
-			i++;
-	}
-	return (dst);
+	ft_putstr_fd(s, fd);
+	ft_putstr_fd("\n", fd);
 }
 /*
-int main()
-{
-	char src[] = "ABCDEFGHIJKL";
-	char *dest = src + 3;
-	ft_memmove(dest, src, 5);
-	printf("%s\n",dest);
+int	main(void)
+{	
+	ft_putendl_fd("Hello", 1); 
+
+	return (0);
 }
 */

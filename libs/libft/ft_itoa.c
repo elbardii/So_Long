@@ -5,40 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 08:10:57 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/11 08:12:40 by isel-bar         ###   ########.fr       */
+/*   Created: 2024/11/08 22:17:01 by isel-bar          #+#    #+#             */
+/*   Updated: 2024/11/18 04:10:35 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int n)
+/**
+ * ft_itoa - Converts an integer to a string.
+ * @n: The integer to convert.
+ *
+ * Return: A pointer to the resulting string, or NULL if allocation fails.
+ */
+
+char	*ft_itoa(int n)
 {
-	return (n >= '0' && n <= '9');
+	int		i;
+	char	dst[12];
+
+	dst[11] = 0;
+	i = 10;
+	while (n || (i == 10))
+	{
+		dst[i--] = "9876543210123456789"[9 + n % 10];
+		if (-10 < n && n < 0)
+			dst[i--] = '-';
+		n = n / 10;
+	}
+	return (ft_strdup(dst + i + 1));
 }
 
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	sign;
-	int	number;
-
-	i = 0;
-	sign = 1;
-	while ((str[i] >= '\t' && str[i] <= '\r') || (str[i] == ' '))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i++] == '-')
-			sign = -sign;
-	}
-	number = 0;
-	while (ft_isdigit(str[i]))
-	{
-		number = 10 * number;
-		if (number < number / 10)
-			return (-(sign > 0));
-		number += str[i++] - '0';
-	}
-	return (sign * number);
-}
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// int main()
+// {
+//     // Test various numbers
+//     int test_number = 150;
+//         char *result = ft_itoa(test_number);
+//         printf("Number: %d -> String: %s\n", test_number, result);
+//     return 0;
+// }

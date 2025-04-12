@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 17:54:26 by isel-bar          #+#    #+#             */
-/*   Updated: 2024/11/04 01:22:08 by isel-bar         ###   ########.fr       */
+/*   Created: 2024/10/29 17:54:18 by isel-bar          #+#    #+#             */
+/*   Updated: 2024/11/07 15:51:25 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-
-	if (dst > src)
-		i = len - 1;
-	else
-		i = 0;
-	while (dst != src && ((dst > src && (int)i >= 0) || (dst < src && i < len)))
-	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		if (dst > src)
-			i--;
-		else
-			i++;
-	}
-	return (dst);
+	if (n < 1 || s1 == s2)
+		return (0);
+	if (*(unsigned char *)s1 - *(unsigned char *)s2)
+		return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (ft_memcmp(s1 + 1, s2 + 1, n - 1));
 }
 /*
 int main()
 {
-	char src[] = "ABCDEFGHIJKL";
-	char *dest = src + 3;
-	ft_memmove(dest, src, 5);
-	printf("%s\n",dest);
+    int i = 1337;
+    int j = 1337;
+    printf("%d\n", ft_memcmp(&i, &j, 6));
 }
 */

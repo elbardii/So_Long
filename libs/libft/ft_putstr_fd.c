@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 17:54:26 by isel-bar          #+#    #+#             */
-/*   Updated: 2024/11/04 01:22:08 by isel-bar         ###   ########.fr       */
+/*   Created: 2024/11/08 22:23:42 by isel-bar          #+#    #+#             */
+/*   Updated: 2024/11/17 02:14:02 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putstr_fd(const char *s, int fd)
 {
-	size_t	i;
-
-	if (dst > src)
-		i = len - 1;
-	else
-		i = 0;
-	while (dst != src && ((dst > src && (int)i >= 0) || (dst < src && i < len)))
-	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		if (dst > src)
-			i--;
-		else
-			i++;
-	}
-	return (dst);
+	while (s && *s)
+		write(fd, s++, 1);
 }
 /*
-int main()
-{
-	char src[] = "ABCDEFGHIJKL";
-	char *dest = src + 3;
-	ft_memmove(dest, src, 5);
-	printf("%s\n",dest);
+int	main(void)
+{	
+	ft_putstr_fd("Hello, world!\n", 1); 
+
+	return (0);
 }
 */
