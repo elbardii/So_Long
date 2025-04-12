@@ -77,7 +77,7 @@ $(LIBFT_LIB):
 
 # Link the program
 $(NAME): $(MLX_LIB) $(PRINTF_LIB) $(LIBFT_LIB) $(OBJ_FILES)
-	@$(CC) $(OBJ_FILES) -o $(NAME) $(LIBFT_LIB) $(PRINTF_LIB) $(MLX_FLAGS)
+	@$(CC) $(OBJ_FILES) $(LIBFT_LIB) $(PRINTF_LIB) $(MLX_FLAGS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) successfully compiled!$(RESET)"
 
 clean:
