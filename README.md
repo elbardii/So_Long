@@ -138,7 +138,7 @@ so_long/
 
 If you have any questions or suggestions about this project, feel free to contact me:
 - GitHub: [@elbardii](https://github.com/elbardii)
-- 42 Intra: [ismail](https://profile.intra.42.fr/users/isel-bar)
+- 42 Intra: [@isel-bar](https://profile.intra.42.fr/users/isel-bar)
 
 ## License
 
