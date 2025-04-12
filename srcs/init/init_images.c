@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/11 06:19:44 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/12 04:31:32 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,37 +149,58 @@ static int	load_image(t_game *game, t_img *img, char *path, char *name)
 int	init_images(t_game *game)
 {
 	int	stage;
+	char *base_path = "/home/ismail/Cursus42/So_Long/";
+	char floor_path[100];
+	char wall_path[100];
+	char collectible_path[100];
+	char exit_path[100];
+	char player_path[100];
+
+	// Create absolute paths for all assets
+	ft_strlcpy(floor_path, base_path, 100);
+	ft_strlcat(floor_path, "assets/sprites/floor.xpm", 100);
+	
+	ft_strlcpy(wall_path, base_path, 100);
+	ft_strlcat(wall_path, "assets/sprites/wall.xpm", 100);
+	
+	ft_strlcpy(collectible_path, base_path, 100);
+	ft_strlcat(collectible_path, "assets/sprites/collectible.xpm", 100);
+	
+	ft_strlcpy(exit_path, base_path, 100);
+	ft_strlcat(exit_path, "assets/sprites/exit.xpm", 100);
+	
+	ft_strlcpy(player_path, base_path, 100);
+	ft_strlcat(player_path, "assets/sprites/player.xpm", 100);
 
 	stage = 0;
 	
 	// Load game sprites from assets folder with progressive error handling
-	if (!load_image(game, &game->img_empty, "assets/sprites/floor.xpm", "floor"))
+	if (!load_image(game, &game->img_empty, floor_path, "floor"))
 		return (0);
 	stage = 1;
 	
-	if (!load_image(game, &game->img_wall, "assets/sprites/wall.xpm", "wall"))
+	if (!load_image(game, &game->img_wall, wall_path, "wall"))
 	{
 		cleanup_loaded_images(game, stage);
 		return (0);
 	}
 	stage = 2;
 	
-	if (!load_image(game, &game->img_collectible, "assets/sprites/collectible.xpm", 
-					"collectible"))
+	if (!load_image(game, &game->img_collectible, collectible_path, "collectible"))
 	{
 		cleanup_loaded_images(game, stage);
 		return (0);
 	}
 	stage = 3;
 	
-	if (!load_image(game, &game->img_exit, "assets/sprites/exit.xpm", "exit"))
+	if (!load_image(game, &game->img_exit, exit_path, "exit"))
 	{
 		cleanup_loaded_images(game, stage);
 		return (0);
 	}
 	stage = 4;
 	
-	if (!load_image(game, &game->img_player, "assets/sprites/player.xpm", "player"))
+	if (!load_image(game, &game->img_player, player_path, "player"))
 	{
 		cleanup_loaded_images(game, stage);
 		return (0);

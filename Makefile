@@ -6,7 +6,7 @@
 #    By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/10 12:00:00 by ismail            #+#    #+#              #
-#    Updated: 2025/04/11 06:46:07 by isel-bar         ###   ########.fr        #
+#    Updated: 2025/04/12 04:43:12 by isel-bar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 # Directories
 SRC_DIR = srcs
-INCLUDES = -Iincludes -I/usr/include -Ilibs/libft
+INCLUDES = -Iincludes -I/usr/include -Ilibs/libft -Ilibs/ft_printf
 OBJ_DIR = objs
 
 # MinilibX
@@ -77,7 +77,7 @@ $(LIBFT_LIB):
 
 # Link the program
 $(NAME): $(MLX_LIB) $(PRINTF_LIB) $(LIBFT_LIB) $(OBJ_FILES)
-	@$(CC) $(OBJ_FILES) $(MLX_FLAGS) -L$(PRINTF_PATH) -lftprintf -L$(LIBFT_PATH) -lft -o $(NAME)
+	@$(CC) $(OBJ_FILES) -o $(NAME) $(LIBFT_LIB) $(PRINTF_LIB) $(MLX_FLAGS)
 	@echo "$(GREEN)$(NAME) successfully compiled!$(RESET)"
 
 clean:
