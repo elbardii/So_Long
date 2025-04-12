@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/10 10:37:45 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/12 04:25:39 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	init_window(t_game *game)
 {
 	int	screen_width;
 	int	screen_height;
+
+	// Initialize MLX connection
+	game->mlx = mlx_init();
+	if (!game->mlx)
+		error_exit(game, ERR_MLX);
 
 	// Calculate window dimensions based on map size and tile size
 	game->win_width = game->map.width * TILE_SIZE;
