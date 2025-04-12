@@ -22,7 +22,7 @@ In "So_Long", you navigate a character through a map filled with collectibles, w
 
 ### 1. Clone this repository
 ```bash
-git clone https://github.com/yourusername/so_long.git
+git clone https://github.com/albardii/so_long.git
 cd so_long
 ```
 
@@ -43,16 +43,8 @@ For macOS (with Homebrew):
 brew install xquartz
 ```
 
-### 3. Install MiniLibX
-The MiniLibX library is included in this repository. To install it:
-```bash
-cd minilibx-linux
-./configure
-make
-cd ..
-```
-
-### 4. Compile the game
+### 3. Compile the game
+The Makefile will handle the compilation of the MiniLibX library and the game:
 ```bash
 make
 ```
@@ -61,14 +53,14 @@ make
 
 1. Launch the game with a valid map file:
 ```bash
-./so_long maps/valid_simple.ber
+./so_long maps/map.ber
 ```
 
 2. Controls:
-   - **W or ↑**: Move up
-   - **A or ←**: Move left
-   - **S or ↓**: Move down
-   - **D or →**: Move right
+   - **W**: Move up
+   - **A**: Move left
+   - **S**: Move down
+   - **D**: Move right
    - **ESC**: Quit the game
 
 3. Game Rules:
@@ -118,38 +110,32 @@ The game performs several checks on the provided map:
 
 ```
 so_long/
-├── assets/             # Game assets
-│   ├── sprites/        # Character and object sprites
-│   └── textures/       # Wall, floor, and other textures
+├── assets/             # Game assets and sprites
 ├── includes/           # Header files
-│   ├── so_long.h       # Main header
-│   └── structs.h       # Data structures
-├── libs/               # Libraries
-│   ├── ft_printf/      # Custom printf implementation
-│   └── libft/          # Custom C library
+├── libs/               # Libraries (libft, etc.)
 ├── maps/               # Map files
-├── minilibx-linux/     # MiniLibX library
 ├── srcs/               # Source code
 │   ├── game/           # Game logic
-│   ├── init/           # Initialization functions
-│   ├── parsing/        # Map parsing
-│   ├── render/         # Rendering functions
+│   ├── map/            # Map parsing and validation
+│   ├── graphics/       # Rendering functions
 │   └── utils/          # Utility functions
-│   └── main.c          # Main entry point
 ├── Makefile            # Build system
 └── README.md           # Project documentation
 ```
 
-## Screenshots
+## Implementation Details
 
-![Gameplay](assets/sprites/gameplay.png)
-![Win Screen](assets/sprites/win.png)
+- Written in C according to the 42 Norm
+- Memory management with proper allocation/deallocation
+- Error handling for invalid maps and system failures
+- Floodfill algorithm for path validation
+- Key event handling through MiniLibX hooks
 
-## Credits
+## Contact
 
-- Game developed as part of the 42 curriculum
-- MiniLibX library by 42 School
-- Sprites and textures from [source/attribution if applicable]
+If you have any questions or suggestions about this project, feel free to contact me:
+- GitHub: [@ismailCodes](https://github.com/ismailCodes)
+- 42 Intra: [ismail](https://profile.intra.42.fr/users/ismail)
 
 ## License
 
