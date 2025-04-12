@@ -2,13 +2,13 @@
 
 A simple 2D game created as part of the 42 curriculum where you control a character who needs to collect all items and reach an exit to win. Built using the MiniLibX graphics library, this project focuses on window management, event handling, and basic game mechanics.
 
-![So_Long Game](assets/sprites/preview.png)
+![So_Long Game](So_long.png)
 
 ## Game Overview
 
 In "So_Long", you navigate a character through a map filled with collectibles, walls, and an exit. The objective is to:
 
-![Gameplay Screenshot](So_long.png)
+![Gameplay Screenshot](So_long_Screenshot.png)
 
 - Collect all collectibles scattered throughout the map
 - Reach the exit once all collectibles are gathered
@@ -138,7 +138,7 @@ so_long/
 
 If you have any questions or suggestions about this project, feel free to contact me:
 - GitHub: [@elbardii](https://github.com/elbardii)
-- 42 Intra: [ismail](https://profile.intra.42.fr/users/isel-bar)
+- 42 Intra: [@isel-bar](https://profile.intra.42.fr/users/isel-bar)
 
 ## License
 
