@@ -61,6 +61,31 @@ Tests proper handling of file-related errors:
 If Valgrind is installed on the system, tests for memory leaks:
 - Runs the game with Valgrind to detect any memory leaks or errors
 
+## Advanced Test Features
+
+### Test Timing
+The script measures the execution time for each test:
+- Displays the time taken in milliseconds for each map test
+- Helps identify performance issues with specific map types
+
+### Test Logging
+Test results are saved to a log file (`test_results.log`):
+- Records a timestamp for the test session
+- Captures all test outputs for future reference
+- Useful for tracking regression issues over time
+
+### Random Map Generation
+The script includes functionality to generate random test maps:
+- Creates maps with customizable dimensions
+- Useful for stress testing with diverse map layouts
+- Generated maps are saved with the prefix `generated_` in the maps directory
+
+### Cleanup Function
+The script includes an automatic cleanup routine:
+- Removes any dynamically generated map files
+- Deletes the test log file when testing is complete
+- Activated automatically when the script exits (via trap)
+
 ## Exit Codes
 
 The test script expects:
@@ -97,3 +122,19 @@ To add new tests:
 ```bash
 run_test "Test name" "path/to/map.ber" expected_exit_code
 ```
+
+To generate and test with random maps:
+```bash
+# Generate a random map with specified dimensions
+generate_random_map "maps/generated_test.ber" width height
+
+# Run test with the generated map
+run_test "Random map test" "maps/generated_test.ber" expected_exit_code
+```
+
+## Troubleshooting
+
+If a test fails, the script provides:
+- The expected and actual exit codes
+- The path to the map file that caused the failure
+- Detailed error messages to help diagnose the issue

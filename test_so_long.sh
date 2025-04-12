@@ -75,4 +75,37 @@ else
     echo -e "${YELLOW}Valgrind not found. Skipping memory leak tests.${NC}"
 fi
 
-echo -e "${GREEN}All tests completed!${NC}"
+echo -e "${GREEN}All tests completed!${NC}"run_test "Map with unreachable exit and collectibles" "maps/invalid_unreachable_exit_and_collectibles.ber" 1run_test "Map with unreachable exit and collectibles" "maps/invalid_unreachable_exit_and_collectibles.ber" 1if [ $exit_code -ne $expected_result ]; then
+    echo -e "${RED}Test failed! Expected exit code $expected_result, got $exit_code${NC}"
+    echo -e "${RED}Check the map file: $map_file${NC}"
+fistart_time=$(date +%s%N)
+./so_long $map_file
+end_time=$(date +%s%N)
+elapsed_time=$((($end_time - $start_time) / 1000000))
+echo -e "${YELLOW}Execution time: ${elapsed_time}ms${NC}"start_time=$(date +%s%N)
+./so_long $map_file
+end_time=$(date +%s%N)
+elapsed_time=$((($end_time - $start_time) / 1000000))
+echo -e "${YELLOW}Execution time: ${elapsed_time}ms${NC}"generate_random_map() {
+    local map_file=$1
+    local width=$2
+    local height=$3
+    # Generate a random map with the given dimensions
+    echo "Generating random map: $map_file (${width}x${height})"
+    # Example: Create a simple rectangular map
+    echo "111" > $map_file
+    for ((i=0; i<height-2; i++)); do
+        echo "1P1" >> $map_file
+    done
+    echo "111" >> $map_file
+}log_file="test_results.log"
+echo "Running tests on $(date)" > $log_file
+run_test "Simple valid map" "maps/valid_simple.ber" 0 >> $log_file 2>&1if [ ! -f $map_file ]; then
+    echo -e "${RED}Map file $map_file does not exist! Skipping test.${NC}"
+    return
+ficleanup() {
+    echo -e "${YELLOW}Cleaning up...${NC}"
+    rm -f maps/generated_*.ber
+    rm -f test_results.log
+}
+trap cleanup EXIT
