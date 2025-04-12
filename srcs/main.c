@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/11 08:55:22 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/12 06:44:54 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int argc, char **argv)
 	if (!check_ber_extension(argv[1]))
 		error_exit(NULL, ERR_EXTENSION);
 	init_struct(&game);
-	if (!init_game(&game, argv[1]))
+	if (init_game(&game, argv[1]) == -1)
 		return (1);
 	mlx_hook(game.win, 2, 1L << 0, handle_keypress, &game);
 	mlx_hook(game.win, 17, 1L << 17, close_game, &game);
