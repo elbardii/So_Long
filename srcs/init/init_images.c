@@ -6,11 +6,13 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/12 05:07:21 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/12 05:58:40 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+#include <errno.h>
+#include <string.h>
 
 /**
  * @brief Clean up already loaded images in case of error
@@ -89,8 +91,28 @@ static void	ft_itoa_simple(int num, char *str)
  */
 static int	load_image(t_game *game, t_img *img, char *path, char *name)
 {
+	// Check if file exists and is readable
+	int fd = open(path, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_putstr_error("Error: Cannot open file ");
+		ft_putstr_error(path);
+		ft_putstr_error(" (");
+		ft_putstr_error(strerror(errno));
+		ft_putstr_error(")\n");
+		return (0);
+	}
+	close(fd);
+	
 	// Initialize to NULL to help with error checking
 	img->img = NULL;
+	
+	// Debug output before loading
+	ft_putstr_custom("Debug: Loading ");
+	ft_putstr_custom(name);
+	ft_putstr_custom(" texture from ");
+	ft_putstr_custom(path);
+	ft_putstr_custom("\n");
 	
 	// Load the XPM file
 	img->img = mlx_xpm_file_to_image(game->mlx, path, &img->width, &img->height);
@@ -105,6 +127,21 @@ static int	load_image(t_game *game, t_img *img, char *path, char *name)
 		return (0);
 	}
 	
+	// Debug output after loading
+	ft_putstr_custom("Debug: Successfully loaded ");
+	ft_putstr_custom(name);
+	ft_putstr_custom(" texture (");
+	
+	char width_str[12];
+	char height_str[12];
+	ft_itoa_simple(img->width, width_str);
+	ft_itoa_simple(img->height, height_str);
+	
+	ft_putstr_custom(width_str);
+	ft_putstr_custom("x");
+	ft_putstr_custom(height_str);
+	ft_putstr_custom(")\n");
+	
 	// Get image data
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 								&img->line_length, &img->endian);
@@ -112,13 +149,9 @@ static int	load_image(t_game *game, t_img *img, char *path, char *name)
 	// Verify dimensions
 	if (!verify_image_dimensions(img, TILE_SIZE))
 	{
-		char	width_str[12];
-		char	height_str[12];
 		char	tile_str[12];
 		
 		// Convert dimensions to strings
-		ft_itoa_simple(img->width, width_str);
-		ft_itoa_simple(img->height, height_str);
 		ft_itoa_simple(TILE_SIZE, tile_str);
 		
 		// Using ft_putstr_error for stderr output

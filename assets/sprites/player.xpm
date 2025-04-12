@@ -1,6 +1,6 @@
 /* XPM */
 static char * player_xpm[] = {
-"32 32 22 1",
+"64 64 22 1",
 " 	c None",
 ".	c #FF0000",
 "+	c #490000",

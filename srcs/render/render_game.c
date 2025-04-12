@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:45:00 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/11 08:46:54 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/12 05:53:18 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	render_tile(t_game *game, int x, int y)
 	int	pos_x;
 	int	pos_y;
 
-	pos_x = x * 64;
-	pos_y = y * 64;
+	pos_x = x * TILE_SIZE;
+	pos_y = y * TILE_SIZE;
 	if (game->map.grid[y][x] == WALL)
 		mlx_put_image_to_window(game->mlx, game->win, game->img_wall.img, 
 			pos_x, pos_y);

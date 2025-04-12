@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/11 08:50:42 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/12 05:53:18 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 /* Window settings */
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
-# define TILE_SIZE 32
+# define TILE_SIZE 64
 
 /* Key codes */
 # define KEY_ESC 65307
