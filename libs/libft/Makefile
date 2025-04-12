@@ -6,7 +6,7 @@
 #    By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/11 06:47:00 by isel-bar          #+#    #+#              #
-#    Updated: 2025/04/11 08:41:29 by isel-bar         ###   ########.fr        #
+#    Updated: 2025/04/12 05:25:42 by isel-bar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS = ft_bzero.c \
        ft_strdup.c \
        ft_strjoin.c \
        ft_strjoin_free.c \
+       ft_strlcpy.c \
+       ft_strlcat.c \
        ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)

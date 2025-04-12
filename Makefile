@@ -6,7 +6,7 @@
 #    By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/10 12:00:00 by ismail            #+#    #+#              #
-#    Updated: 2025/04/12 04:43:12 by isel-bar         ###   ########.fr        #
+#    Updated: 2025/04/12 05:34:16 by isel-bar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ $(LIBFT_LIB):
 
 # Link the program
 $(NAME): $(MLX_LIB) $(PRINTF_LIB) $(LIBFT_LIB) $(OBJ_FILES)
-	@$(CC) $(OBJ_FILES) $(LIBFT_LIB) $(PRINTF_LIB) $(MLX_FLAGS) -o $(NAME)
+	@$(CC) $(OBJ_FILES) -o $(NAME) $(MLX_FLAGS) $(LIBFT_LIB) $(PRINTF_LIB)
 	@echo "$(GREEN)$(NAME) successfully compiled!$(RESET)"
 
 clean:
