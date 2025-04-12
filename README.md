@@ -8,7 +8,7 @@ A simple 2D game created as part of the 42 curriculum where you control a charac
 
 In "So_Long", you navigate a character through a map filled with collectibles, walls, and an exit. The objective is to:
 
-![Gameplay Screenshot](assets/sprites/So_long.png)
+![Gameplay Screenshot](So_long.png)
 
 - Collect all collectibles scattered throughout the map
 - Reach the exit once all collectibles are gathered
