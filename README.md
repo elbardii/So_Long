@@ -7,6 +7,9 @@ A simple 2D game created as part of the 42 curriculum where you control a charac
 ## Game Overview
 
 In "So_Long", you navigate a character through a map filled with collectibles, walls, and an exit. The objective is to:
+
+![Gameplay Screenshot](assets/sprites/So_long.png)
+
 - Collect all collectibles scattered throughout the map
 - Reach the exit once all collectibles are gathered
 - Avoid unnecessary moves to achieve the best possible score
@@ -134,8 +137,8 @@ so_long/
 ## Contact
 
 If you have any questions or suggestions about this project, feel free to contact me:
-- GitHub: [@ismailCodes](https://github.com/ismailCodes)
-- 42 Intra: [ismail](https://profile.intra.42.fr/users/ismail)
+- GitHub: [@ismailCodes](https://github.com/elbardii)
+- 42 Intra: [ismail](https://profile.intra.42.fr/users/isel-bar)
 
 ## License
 
