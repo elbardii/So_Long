@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:04:57 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/12 11:36:14 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:51:15 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		has_newline(char *s);
 
 /* Define these functions only if not already defined in libft */
 # ifndef LIBFT_H
+
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(char *s);
 # endif

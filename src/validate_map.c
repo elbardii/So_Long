@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/13 17:24:58 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:51:15 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,9 @@ static int	count_map_objects(t_game *game)
 	int	x;
 	int	y;
 
-	/* Reset all counter variables before counting */
 	game->player_count = 0;
 	game->collectibles = 0;
 	game->exit_count = 0;
-	
 	y = 0;
 	while (y < game->map_height)
 	{

@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/13 17:12:03 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:51:15 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	render_map(t_game *game)
 		x = 0;
 		while (x < game->map_width)
 		{
-			render_tile(game, game->map[y][x], x * game->tile_size, 
+			render_tile(game, game->map[y][x], x * game->tile_size,
 				y * game->tile_size);
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/13 17:24:58 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:58:24 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	check_path_results(t_game *game, char **map, int coins, int exit_found)
 	if (coins != game->collectibles || !exit_found)
 	{
 		free_map_copy(map, game->map_height);
-		exit_with_cleanup("No valid path to collect all items and reach exit", 
+		exit_with_cleanup("No valid path to collect all items and reach exit",
 			game);
 	}
 }
@@ -78,13 +78,11 @@ void	flood_fill(char **map, int x, int y, t_game *game)
 	static int	coins = 0;
 	static int	exit_found = 0;
 
-	/* Reset static variables on initial call (player position) */
 	if (x == game->player_x && y == game->player_y && map[y][x] != 'X')
 	{
 		coins = 0;
 		exit_found = 0;
 	}
-
 	if (!is_valid_position(x, y, game, map))
 		return ;
 	if (map[y][x] == 'E')
