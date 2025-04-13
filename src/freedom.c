@@ -6,13 +6,13 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/12 11:55:23 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:18:08 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/so_long.h"
 
+/* Properly deallocates a 2D map array */
 void	free_map(char **map)
 {
 	int	i;
@@ -28,37 +28,44 @@ void	free_map(char **map)
 	free(map);
 }
 
-void error_exit(char *message, t_game *game)
+/* Exits the program with an error message, minimal cleanup */
+void	exit_with_error(char *message, t_game *game)
 {
-    write(2, "Error\n", 6);
-    write(2, message, ft_strlen(message));
-    write(2, "\n", 1);
-    if (game)
-    {
-        free(game);
-        game = NULL; // Prevent double free
-    }
-    exit(EXIT_FAILURE);
+	write(2, "Error\n", 6);
+	write(2, message, ft_strlen(message));
+	write(2, "\n", 1);
+	if (game)
+	{
+		free(game);
+		game = NULL;
+	}
+	exit(EXIT_FAILURE);
 }
 
-void error2_exit(char *message, t_game *game)
+/* Exits with error message and performs full cleanup */
+void	exit_with_cleanup(char *message, t_game *game)
 {
-    write(2, "Error\n", 6);
-    write(2, message, ft_strlen(message));
-    write(2, "\n", 1);
-    exit2_game(game);
+	write(2, "Error\n", 6);
+	write(2, message, ft_strlen(message));
+	write(2, "\n", 1);
+	exit_game_with_cleanup(game);
 }
 
+/* Frees a temporary map copy used in validation */
 void	free_map_copy(char **map_copy, int height)
 {
 	int	i;
 
 	i = 0;
 	while (i < height)
-		free(map_copy[i++]);
+	{
+		free(map_copy[i]);
+		i++;
+	}
 	free(map_copy);
 }
 
+/* Properly destroys all loaded images */
 void	destroy_images(t_game *game)
 {
 	if (game->img.wall)

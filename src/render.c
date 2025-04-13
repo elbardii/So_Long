@@ -6,14 +6,14 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/12 11:55:23 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:12:03 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/so_long.h"
 
-void	ft_load_images(t_game *game)
+/* Loads all game images from texture files */
+void	load_game_images(t_game *game)
 {
 	game->img.wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm",
 			&game->tile_size, &game->tile_size);
@@ -27,9 +27,10 @@ void	ft_load_images(t_game *game)
 			&game->tile_size, &game->tile_size);
 	if (!game->img.wall || !game->img.floor || !game->img.player
 		|| !game->img.exit || !game->img.coin)
-		error2_exit("Failed to load textures", game);
+		exit_with_cleanup("Failed to load textures", game);
 }
 
+/* Renders a single tile at the specified position */
 void	render_tile(t_game *game, char tile, int x, int y)
 {
 	if (tile == '1')
@@ -44,6 +45,7 @@ void	render_tile(t_game *game, char tile, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->win, game->img.coin, x, y);
 }
 
+/* Renders the entire map to the game window */
 void	render_map(t_game *game)
 {
 	int	y;
@@ -55,25 +57,27 @@ void	render_map(t_game *game)
 		x = 0;
 		while (x < game->map_width)
 		{
-			render_tile(game, game->map[y][x], x * game->tile_size, y
-				* game->tile_size);
+			render_tile(game, game->map[y][x], x * game->tile_size, 
+				y * game->tile_size);
 			x++;
 		}
 		y++;
 	}
 }
 
+/* Validates that all collectibles and exit are reachable */
 void	check_valid_path(t_game *game)
 {
 	char	**map_copy;
 
-	ft_check_position(game);
+	find_player_position(game);
 	allocate_map_copy(&map_copy, game);
 	flood_fill(map_copy, game->player_x, game->player_y, game);
 	free_map_copy(map_copy, game->map_height);
 }
 
-void	exit2_game(t_game *game)
+/* Performs a complete game cleanup and exits with error */
+void	exit_game_with_cleanup(t_game *game)
 {
 	if (game->mlx)
 	{
@@ -82,14 +86,13 @@ void	exit2_game(t_game *game)
 			mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
-		game->mlx = NULL; // Prevent double free
+		game->mlx = NULL;
 	}
 	if (game->map)
 	{
 		free_map(game->map);
-		game->map = NULL; // Prevent double free
+		game->map = NULL;
 	}
 	free(game);
-	game = NULL; // Prevent double free
 	exit(1);
 }

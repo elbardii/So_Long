@@ -6,14 +6,14 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/12 11:08:57 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:12:03 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/so_long.h"
 
-int	ft_check_name(char *str)
+/* Verifies if file has the correct .ber extension */
+int	check_file_extension(char *str)
 {
 	int	len;
 
@@ -25,7 +25,8 @@ int	ft_check_name(char *str)
 	return (0);
 }
 
-void	ft_init_var(t_game *game)
+/* Initializes all game variables to default values */
+void	initialize_variables(t_game *game)
 {
 	game->mlx = NULL;
 	game->win = NULL;

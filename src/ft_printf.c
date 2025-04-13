@@ -6,17 +6,19 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/12 11:07:29 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:12:03 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+/* Outputs a single character to stdout */
 static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
+/* Outputs an integer to stdout */
 static void	ft_putnbr(int n)
 {
 	char	c;
@@ -27,6 +29,7 @@ static void	ft_putnbr(int n)
 	write(1, &c, 1);
 }
 
+/* Simplified printf function that supports %d format specifier */
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;

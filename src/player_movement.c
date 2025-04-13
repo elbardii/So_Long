@@ -6,13 +6,13 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/12 11:09:02 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:12:03 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/so_long.h"
 
+/* Updates player position after a valid move */
 void	update_player_position(t_game *game, int new_x, int new_y)
 {
 	game->map[game->player_y][game->player_x] = '0';
@@ -24,14 +24,16 @@ void	update_player_position(t_game *game, int new_x, int new_y)
 	render_map(game);
 }
 
-void	check_move_result(t_game *game, int new_x, int new_y)
+/* Processes special tiles the player moves onto */
+void	process_move_result(t_game *game, int new_x, int new_y)
 {
 	if (game->map[new_y][new_x] == 'C')
 		game->coins++;
 	if (game->map[new_y][new_x] == 'E' && game->collectibles == game->coins)
-		win_game(game);
+		complete_game(game);
 }
 
+/* Moves the player in the specified direction if possible */
 void	move_player(t_game *game, int x_offset, int y_offset)
 {
 	int	new_x;
@@ -43,10 +45,11 @@ void	move_player(t_game *game, int x_offset, int y_offset)
 		return ;
 	if (game->map[new_y][new_x] == 'E' && game->collectibles != game->coins)
 		return ;
-	check_move_result(game, new_x, new_y);
+	process_move_result(game, new_x, new_y);
 	update_player_position(game, new_x, new_y);
 }
 
+/* Cleans up resources and exits the game normally */
 int	exit_game(t_game *game)
 {
 	if (game->mlx)
@@ -60,9 +63,11 @@ int	exit_game(t_game *game)
 	free_map(game->map);
 	free(game);
 	exit(0);
+	return (0);
 }
 
-int	key_handler(int keycode, t_game *game)
+/* Handles keyboard input during gameplay */
+int	handle_keypress(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
 		exit_game(game);

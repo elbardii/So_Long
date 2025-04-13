@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 22:16:36 by isel-bar          #+#    #+#             */
-/*   Updated: 2024/11/18 04:11:55 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/12 19:16:07 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,3 @@ char	**ft_split(const char *str, char sep)
 	}
 	return (result[i] = NULL, result);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-//     char **p = ft_split("0#tayri#   iw asmon  olino # atitigan#", '#');
-//     for (int i = 0; p[i] != NULL; i++)
-//         printf("%s#\n", p[i]);
-// }

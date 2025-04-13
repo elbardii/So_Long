@@ -6,14 +6,14 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/12 11:09:11 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:24:58 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/so_long.h"
 
-static int	is_rectangular(t_game *game)
+/* Checks if the map has a rectangular shape */
+static int	is_rectangular_shape(t_game *game)
 {
 	int		i;
 	size_t	first_line;
@@ -31,19 +31,20 @@ static int	is_rectangular(t_game *game)
 	return (1);
 }
 
-static int	is_walled(t_game *game)
+/* Checks if the map is surrounded by walls */
+static int	is_surrounded_by_walls(t_game *game)
 {
 	int	x;
 	int	y;
 	int	last_col;
-	int	last_raw;
+	int	last_row;
 
 	x = 0;
 	last_col = game->map_width - 1;
-	last_raw = game->map_height - 1;
+	last_row = game->map_height - 1;
 	while (x < game->map_width)
 	{
-		if (game->map[0][x] != '1' || game->map[last_raw][x] != '1')
+		if (game->map[0][x] != '1' || game->map[last_row][x] != '1')
 			return (0);
 		x++;
 	}
@@ -57,22 +58,29 @@ static int	is_walled(t_game *game)
 	return (1);
 }
 
-static int	ft_check_var(t_game *game)
+/* Validates required game objects: player, exit, collectibles */
+static int	validate_object_counts(t_game *game)
 {
 	if (game->player_count != 1)
-		error2_exit("player must be exactly 1", game);
+		exit_with_cleanup("Player must be exactly 1", game);
 	if (game->collectibles < 1)
-		error2_exit("there is less than 1 collectible", game);
+		exit_with_cleanup("There must be at least 1 collectible", game);
 	if (game->exit_count != 1)
-		error2_exit("exit must be exactly one", game);
+		exit_with_cleanup("Exit must be exactly 1", game);
 	return (1);
 }
 
-static int	validate_objects(t_game *game)
+/* Checks for valid map objects and counts them */
+static int	count_map_objects(t_game *game)
 {
 	int	x;
 	int	y;
 
+	/* Reset all counter variables before counting */
+	game->player_count = 0;
+	game->collectibles = 0;
+	game->exit_count = 0;
+	
 	y = 0;
 	while (y < game->map_height)
 	{
@@ -91,16 +99,17 @@ static int	validate_objects(t_game *game)
 		}
 		y++;
 	}
-	return (ft_check_var(game));
+	return (validate_object_counts(game));
 }
 
-void	validate_map(t_game *game)
+/* Main map validation function that checks all requirements */
+void	validate_map_structure(t_game *game)
 {
-	if (!is_rectangular(game))
-		error2_exit("Map not rectangular", game);
-	if (!is_walled(game))
-		error2_exit("Map not walled", game);
-	if (!validate_objects(game))
-		error2_exit("Invalid object counts or invalid characters in map", game);
+	if (!is_rectangular_shape(game))
+		exit_with_cleanup("Map must be rectangular", game);
+	if (!is_surrounded_by_walls(game))
+		exit_with_cleanup("Map must be surrounded by walls", game);
+	if (!count_map_objects(game))
+		exit_with_cleanup("Invalid characters found in map", game);
 	check_valid_path(game);
 }
