@@ -6,12 +6,11 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:04:27 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/12 11:37:20 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/14 08:21:37 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <fcntl.h>
 
 static char	*read_line(int fd, char *buffer)
 {
