@@ -1,7 +1,7 @@
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude -I$(HOME)/local/include -Ilibs/libft -Ilibs/get_next_line
+CFLAGS = -Wall -Wextra -Werror -Iinclude -I/usr/include/minilibx-linux -Ilibs/libft -Ilibs/get_next_line
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -14,8 +14,8 @@ GNL_SRCS = $(addprefix libs/get_next_line/, $(GNL_FILES))
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 GNL_OBJS = $(GNL_SRCS:libs/get_next_line/%.c=$(OBJ_DIR)/gnl/%.o)
 
-MLX_DIR = $(HOME)/local/lib
-MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11
+MLX_DIR = /usr/include/minilibx-linux
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 LIBFT_DIR = libs/libft
 LIBFT = $(LIBFT_DIR)/libft.a
