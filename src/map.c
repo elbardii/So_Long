@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:00:00 by ismail            #+#    #+#             */
-/*   Updated: 2025/04/13 17:24:58 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/16 01:45:31 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*read_map_file(char *file, t_game *game)
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (line[0] == '\n' && line[1] == '\0')
+		if (ft_strlen(line) == 1 && line[0] == '\n')
 			handle_empty_line(fd, line, buffer, game);
 		tmp = buffer;
 		buffer = ft_strjoin(tmp, line);

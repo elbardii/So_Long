@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:04:27 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/14 08:21:37 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/16 01:40:38 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,16 @@ char	*get_next_line(int fd)
 	char		*current_line;
 	static char	*storage_buffer;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
+	{
+		if (storage_buffer)
+		{
+			free(storage_buffer);
+			storage_buffer = NULL;
+		}
+		return (NULL);
+	}
+	if (BUFFER_SIZE <= 0)
 		return (NULL);
 	storage_buffer = read_line(fd, storage_buffer);
 	if (!storage_buffer)
