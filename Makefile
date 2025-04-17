@@ -9,8 +9,10 @@ OBJ_DIR = obj
 SRC_FILES = main.c map.c validate_map.c flood_fill.c freedom.c render.c player_movement.c ft_printf.c name_check.c
 GNL_FILES = get_next_line.c get_next_line_utils.c
 
-SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
-GNL_SRCS = $(addprefix libs/get_next_line/, $(GNL_FILES))
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/map.c $(SRC_DIR)/validate_map.c $(SRC_DIR)/flood_fill.c \
+       $(SRC_DIR)/freedom.c $(SRC_DIR)/render.c $(SRC_DIR)/player_movement.c \
+       $(SRC_DIR)/ft_printf.c $(SRC_DIR)/name_check.c
+GNL_SRCS = libs/get_next_line/get_next_line.c libs/get_next_line/get_next_line_utils.c
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 GNL_OBJS = $(GNL_SRCS:libs/get_next_line/%.c=$(OBJ_DIR)/gnl/%.o)
 
