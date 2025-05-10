@@ -1,3 +1,4 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/elbardii/So_Long)
 # So_Long
 
 A simple 2D game created as part of the 42 curriculum where you control a character who needs to collect all items and reach an exit to win. Built using the MiniLibX graphics library, this project focuses on window management, event handling, and basic game mechanics.
